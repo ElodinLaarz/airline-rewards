@@ -1,4 +1,4 @@
-import { Airline } from "@/types";
+import { Airline, Alliance } from "@/types";
 
 export const airlines: Airline[] = [
   // Star Alliance
@@ -152,11 +152,13 @@ export const airlines: Airline[] = [
   },
 ];
 
+const airlinesByCode = new Map(airlines.map((a) => [a.code, a]));
+
 export function getAirline(code: string): Airline | undefined {
-  return airlines.find((a) => a.code === code);
+  return airlinesByCode.get(code);
 }
 
-export function getAirlinesByAlliance(alliance: string): Airline[] {
+export function getAirlinesByAlliance(alliance: Alliance | "all"): Airline[] {
   if (alliance === "all") return airlines;
   return airlines.filter((a) => a.alliance === alliance);
 }
