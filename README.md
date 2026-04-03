@@ -1,28 +1,35 @@
 # airline-rewards
-
 simple site to display best rewards costs across airlines
 
 ## Current Status & Capabilities
 
-The project is currently in active development. The following features and foundations are implemented:
+The project has achieved its initial prototype goals. The following features are fully implemented:
 
 ### Core Foundation
-
 - **Framework:** Next.js 16 (App Router) with React 19.
 - **Language:** TypeScript with strict type definitions for flights, airlines, award charts, and credit card programs.
 - **Styling:** Tailwind CSS v4.
 - **CI/CD:** GitHub Actions workflow enforcing formatting (Prettier), linting (ESLint + Security plugin), and production builds.
 
-### Implemented Features
-
-- **Airports API:** A functional `/api/airports` endpoint powered by a static dataset of major global airports.
-- **Autocomplete Component:** A reusable `AirportSearch` component with:
-  - Debounced searching to minimize API calls.
-  - Race-condition protection using `AbortController`.
-  - Accessibility support via ARIA attributes (`combobox`, `listbox`, etc.).
-- **Data Layer:** Initial datasets for major airlines (Star Alliance, Oneworld, SkyTeam) and global airports.
+### Key Features
+- **Flight Search Form:** A comprehensive search interface with:
+    - Autocomplete airport search (Origin & Destination).
+    - Date selection and passenger count.
+    - Support for One-way and Round-trip (mocked).
+- **Rewards Analysis Engine:**
+    - Real-time calculation of credit card point requirements (Amex MR, Capital One).
+    - Comparison between direct Cash Price (Travel Eraser) and Point Transfers to airline partners.
+    - "High Value Transfer" recommendations (based on >2.0 cents per point valuation).
+- **Mock Search API:** An endpoint that simulates flight results with realistic pricing and point conversions.
+- **Results Page:** A responsive interface displaying flight cards with detailed reward options.
+- **Data Layer:** Pre-populated datasets for:
+    - 20+ major global airlines and their alliances.
+    - 30+ major international airports.
+    - Regional award charts for business class travel.
+    - Major credit card transfer partner ratios.
 
 ## Getting Started
+
 
 First, run the development server:
 
