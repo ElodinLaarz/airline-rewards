@@ -1,46 +1,50 @@
 "use client";
 
 import Image from "next/image";
-import { AirportSearch } from "@/components/search/AirportSearch";
+import { FlightSearchForm } from "@/components/search/FlightSearchForm";
 
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert mb-8"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left w-full">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Find your next flight.
+      <main className="flex flex-1 w-full max-w-4xl flex-col items-center justify-center py-20 px-6 bg-zinc-50 dark:bg-black sm:items-start">
+        <div className="mb-12 flex flex-col items-center sm:items-start">
+          <Image
+            className="dark:invert mb-8"
+            src="/next.svg"
+            alt="Next.js logo"
+            width={120}
+            height={24}
+            priority
+          />
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
+            Find the best rewards for your next flight.
           </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mt-8">
-            <AirportSearch
-              label="Origin"
-              placeholder="Where from?"
-              onSelect={(a) => console.log("Origin:", a)}
-            />
-            <AirportSearch
-              label="Destination"
-              placeholder="Where to?"
-              onSelect={(a) => console.log("Destination:", a)}
-            />
-          </div>
+          <p className="mt-4 text-xl text-zinc-600 dark:text-zinc-400">
+            Compare miles, points, and transfer partners in one place.
+          </p>
         </div>
 
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row mt-12">
-          <button
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            onClick={() => console.log("Searching...")}
-          >
-            Search Flights
-          </button>
+        <FlightSearchForm />
+
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3 w-full">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+            <h3 className="font-semibold">Award Charts</h3>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Access regional award pricing across major airline alliances.
+            </p>
+          </div>
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+            <h3 className="font-semibold">Transfer Partners</h3>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Calculate optimal point transfers from Amex, Capital One, and more.
+            </p>
+          </div>
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+            <h3 className="font-semibold">Flight Search</h3>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Real-time flight search integration with Kiwi and Amadeus.
+            </p>
+          </div>
         </div>
       </main>
     </div>
