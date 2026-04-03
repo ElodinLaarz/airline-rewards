@@ -1,10 +1,26 @@
 # airline-rewards
-
 simple site to display best rewards costs across airlines
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Current Status & Capabilities
+
+The project is currently in active development. The following features and foundations are implemented:
+
+### Core Foundation
+- **Framework:** Next.js 16 (App Router) with React 19.
+- **Language:** TypeScript with strict type definitions for flights, airlines, award charts, and credit card programs.
+- **Styling:** Tailwind CSS v4.
+- **CI/CD:** GitHub Actions workflow enforcing formatting (Prettier), linting (ESLint + Security plugin), and production builds.
+
+### Implemented Features
+- **Airports API:** A functional `/api/airports` endpoint powered by a static dataset of major global airports.
+- **Autocomplete Component:** A reusable `AirportSearch` component with:
+    - Debounced searching to minimize API calls.
+    - Race-condition protection using `AbortController`.
+    - Accessibility support via ARIA attributes (`combobox`, `listbox`, etc.).
+- **Data Layer:** Initial datasets for major airlines (Star Alliance, Oneworld, SkyTeam) and global airports.
 
 ## Getting Started
+
 
 First, run the development server:
 
