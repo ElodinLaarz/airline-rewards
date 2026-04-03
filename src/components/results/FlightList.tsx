@@ -1,9 +1,9 @@
 import * as React from "react";
-import { NormalizedFlight } from "@/types";
+import { FlightWithPoints } from "@/types";
 import { FlightCard } from "./FlightCard";
 
 interface FlightListProps {
-  flights: NormalizedFlight[];
+  flights: FlightWithPoints[];
   isLoading: boolean;
 }
 

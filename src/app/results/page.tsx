@@ -2,14 +2,14 @@
 
 import * as React from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { NormalizedFlight } from "@/types";
+import { FlightWithPoints } from "@/types";
 import { FlightList } from "@/components/results/FlightList";
 import { Button } from "@/components/ui/button";
 
 function ResultsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [flights, setFlights] = React.useState<NormalizedFlight[]>([]);
+  const [flights, setFlights] = React.useState<FlightWithPoints[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const origin = searchParams.get("origin");
