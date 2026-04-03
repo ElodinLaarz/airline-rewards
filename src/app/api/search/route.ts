@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { airlines } from "@/data/airlines";
-import { NormalizedFlight } from "@/types";
+import { FlightWithPoints, NormalizedFlight } from "@/types";
+import { calculateConversions } from "@/lib/points/conversion";
 
 function generateMockFlights(
   origin: string,
   destination: string,
   departDate: string,
   adults: number,
-): NormalizedFlight[] {
-  const flights: NormalizedFlight[] = [];
+): FlightWithPoints[] {
+  const flights: FlightWithPoints[] = [];
   const count = Math.floor(Math.random() * 5) + 3; // 3-7 flights
 
   for (let i = 0; i < count; i++) {
@@ -25,7 +26,7 @@ function generateMockFlights(
 
     const pricePerPaxUsd = Math.floor(Math.random() * 800) + 400;
 
-    flights.push({
+    const baseFlight: NormalizedFlight = {
       id,
       source: "kiwi",
       airline: airline.code,
@@ -45,6 +46,11 @@ function generateMockFlights(
       deepLink: "https://example.com/booking",
       seatsRequested: adults,
       adjacentSeatsNote: adults > 1 ? "Adjacent seats confirmed" : "",
+    };
+
+    flights.push({
+      ...baseFlight,
+      pointsConversions: calculateConversions(baseFlight),
     });
   }
 
